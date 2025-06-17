@@ -6,12 +6,13 @@ A web application for generating and solving security challenges with AI assista
 
 Secure-AI-App is designed to help users learn about security concepts through interactive challenges. The application leverages AI to generate security scenarios and provides a platform for users to solve these challenges.
 
-## Features (Planned)
+## Features
 
 - User authentication via Clerk
-- AI-powered security challenge generation
-- Challenge history tracking
-- Interactive UI for solving security challenges
+- AI-powered security challenge generation with difficulty levels (easy, medium, hard)
+- Daily quota system for challenge generation
+- Challenge history tracking and viewing
+- Interactive UI for solving multiple-choice security challenges
 
 ## Project Structure
 
@@ -67,19 +68,21 @@ The project is divided into two main components:
 
 4. Install dependencies:
    ```
-   pip install -e .
-   ```
-
-5. Create a `.env` file with the following variables:
+5. Create a `.env` file in the `src` directory based on the `.env.sample` file with the following variables:
    ```
    CLERK_SECRET_KEY=your_clerk_secret_key
    OPENAI_API_KEY=your_openai_api_key
+   JWT_KEY="-----BEGIN PUBLIC KEY-----
+   YOUR_JWT_PUBLIC_KEY_CONTENT_HERE
+   -----END PUBLIC KEY-----"
+   CLERK_WEBHOOK_SECRET=your_clerk_webhook_secret
    ```
 
 6. Run the server:
    ```
    python server.py
    ```
+   The server will start on `http://localhost:8000`
 
 ### Frontend Setup
 
@@ -114,5 +117,4 @@ Once both the backend and frontend servers are running:
 
 ## Development Status
 
-This project is currently in early development. Many features are still being implemented, and the application structure may change significantly.
-
+This project has implemented its core functionality including user authentication, AI-powered challenge generation, and history tracking. The application is functional but continues to be enhanced with new features and improvements.
